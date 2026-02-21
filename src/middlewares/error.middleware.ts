@@ -15,10 +15,10 @@ export const errorHandler = (err: any, _req: Request, res: Response, _next: Next
     const response = {
         success: false,
         message,
-        ...(process.env.NODE_ENV === 'development' && { stack: err.stack }),
+        ...(process.env.NODE_ENV === 'production' && { stack: err.stack }),
     };
 
-    if (process.env.NODE_ENV === 'development') {
+    if (process.env.NODE_ENV === 'production') {
         console.error(err);
     }
 
