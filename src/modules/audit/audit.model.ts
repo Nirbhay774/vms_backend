@@ -21,7 +21,11 @@ const auditSchema = new Schema<IAudit>(
         newState: { type: Schema.Types.Mixed },
         ipAddress: { type: String },
     },
-    { timestamps: { createdAt: true, updatedAt: false } }
+    {
+        timestamps: { createdAt: true, updatedAt: false },
+        toJSON: { virtuals: true },
+        toObject: { virtuals: true }
+    }
 );
 
 // Indexes for fast querying
